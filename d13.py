@@ -23,7 +23,8 @@ for line in open(filename):
 def calcHapiness(arrangement):
   ppl = len(arrangement)
   hap = 0
-  for i in range(ppl):
+  # Remove the -1 for part 1
+  for i in range(ppl-1):
     hap += preferences[arrangement[i] + ' ' + arrangement[(i+1)%ppl]]
     hap += preferences[arrangement[(i+1)%ppl] + ' ' + arrangement[i]]
   return hap
