@@ -36,7 +36,6 @@ def calcDistance(s, d1, d2, t):
   return s * fullloops * d1 + remainder * s
 
 for i in range(duration):
-  print i
   for d in speeds:
     ob = speeds[d]
     ob[3] = calcDistance(int(ob[0]),int(ob[1]),int(ob[2]),i+1)
