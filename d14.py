@@ -12,7 +12,7 @@ speeds = dict()
 
 for line in open(filename):
   d,s,d1,d2 = re.search("(.*) can fly (.*) km/s for (.*) seconds, but then must rest for (.*) seconds.", line).groups()
-  speeds[d] = list((s, d1, d2, "-", -1))
+  speeds[d] = list((s, d1, d2, "-", 0))
 
 def getWinners(i):
   i = int(i)
@@ -36,13 +36,14 @@ def calcDistance(s, d1, d2, t):
   return s * fullloops * d1 + remainder * s
 
 for i in range(duration):
+  print i
   for d in speeds:
     ob = speeds[d]
-    ob[3] = calcDistance(int(ob[0]),int(ob[1]),int(ob[2]),i)
+    ob[3] = calcDistance(int(ob[0]),int(ob[1]),int(ob[2]),i+1)
   front = getWinners(3)
   for d in front:
     speeds[d][4] = int(speeds[d][4]) + 1
-  
+
 # By distance
 winner = getWinners(3)[0]
 print "Winner (dist):",winner,speeds[winner]
