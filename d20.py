@@ -28,8 +28,8 @@ while True:
   val = calculatePresents1(i)
   if val > target:
     break
-  if i%(factor*50) == 0:
-    print "i:("+str(i)+")",val
+  #if i%(factor*50) == 0:
+  #  print "i:("+str(i)+")",val
   i += factor
 
 print "Part 1:", i
@@ -39,8 +39,8 @@ while True:
   val = calculatePresents2(i)
   if val > target:
     break
-  if i%(factor*50) == 0:
-    print "i:("+str(i)+")",val
+  #if i%(factor*50) == 0:
+  #  print "i:("+str(i)+")",val
   i += factor
 
 print "Part 2:", i
