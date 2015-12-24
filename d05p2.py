@@ -39,13 +39,7 @@ for line in open(filename):
     naughty.append(line)
     naughty_cnt+=1
 
-  print "Line: ", line, "\tpairs: ", sepp, "\tsep: ", sub
+  #print "Line: ", line, "\tpairs: ", sepp, "\tsep: ", sub
 
-  '''
-
-print "Naughty list: (", str(len(naughty)), "): ", str(naughty)
-print "Nice list: (", str(len(nice)), "): ", str(nice)
-  '''
-
-print "Naughty count: ", str(len(naughty))
-print "Nice count: ", str(len(nice))
+#print "Naughty count: ", str(len(naughty))
+print "Nice count (part2): ", str(len(nice))

@@ -50,5 +50,5 @@ for c in clues.keys():
         total2 -= int(a)
         excluded2.add(a)
 
-print "Gifter (1): ", total1
-print "Gifter (2): ", total2
+print "Gifter (Part 1): ", total1
+print "Gifter (Part 2): ", total2

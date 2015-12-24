@@ -2,9 +2,6 @@
 import sys
 import re
 
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-
 filename = sys.argv[1]
 solvefor = sys.argv[2]
 patterns = dict()
@@ -20,9 +17,6 @@ def operate(left, op, right):
   left = int(left)
   right = int(right)
 
-  '''
-  print "\nCalculating: ", str(left), " ", op, " ", str(right), "\n"
-  '''
   if op == 'NOT':
     return ~right
   elif op == 'AND':
@@ -41,9 +35,6 @@ def solve_loop(key):
 
 
 def solve(key):
-  '''
-  print "FOR KEY: ", key, " patt: ", patterns[key]
-  '''
   left = patterns[key][0]
   op = patterns[key][1]
   right = patterns[key][2]
@@ -58,23 +49,28 @@ def solve(key):
   return operate(left, op, right)
 
 
-''' Build a dictionary to reduce '''
-for line in  open(filename):
-  line = line.rstrip()
-  '''
-  print "Line: ", line, "\n"
-  print "Idx space: ", str(line.index(" ")), ", ", line[line.index(" ")+1]
-  '''
+# Build a dictionary to reduce
+def buildPatterns():
+  for line in  open(filename):
+    line = line.rstrip()
 
-  if line[line.index(" ")+1] == "-" and line[line.index(" ")+2] == ">":
-    m = re.search('(.*) -> (.*)', line)
-    patterns[m.group(2)]=[0, "NONE", m.group(1)]
-  elif line.startswith("NOT"):
-    m = re.search('(.*) (.*) -> (.*)', line)
-    patterns[m.group(3)]=[0, m.group(1), m.group(2)]
-  else:
-    m = re.search('(.*) (.*) (.*) -> (.*)', line)
-    patterns[m.group(4)]=[m.group(1), m.group(2), m.group(3)]
+    if line[line.index(" ")+1] == "-" and line[line.index(" ")+2] == ">":
+      m = re.search('(.*) -> (.*)', line)
+      patterns[m.group(2)]=[0, "NONE", m.group(1)]
+    elif line.startswith("NOT"):
+      m = re.search('(.*) (.*) -> (.*)', line)
+      patterns[m.group(3)]=[0, m.group(1), m.group(2)]
+    else:
+      m = re.search('(.*) (.*) (.*) -> (.*)', line)
+      patterns[m.group(4)]=[m.group(1), m.group(2), m.group(3)]
 
-''' Solve for 'a' '''
-print "Solving for ", solvefor, ": ", str(solve(solvefor))
+# Solve for 'a'
+buildPatterns()
+answer = solve(solvefor)
+print "Part 1", answer
+
+buildPatterns()
+patterns['b'] = [0, "NONE", str(answer)]
+
+answer = solve(solvefor)
+print "Part 2", answer

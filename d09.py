@@ -1,11 +1,7 @@
 #!/usr/bin/python
 import sys
 
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-
 filename = sys.argv[1]
-operator = sys.argv[2]
 locations = set()
 routes = dict()
 
@@ -44,6 +40,7 @@ def visit(cost, visited, location):
           price = tmp
   return price
 
+operator = '<'
 visited = []
 price = -1
 for town in locations:
@@ -51,4 +48,13 @@ for town in locations:
   if price == -1 or compare(cost, price):
     price = cost
 
-print "Result:", price
+print "Result (part1):", price
+
+operator = '>'
+visited = []
+price = -1
+for town in locations:
+  cost = visit(0, list(visited), town)
+  if price == -1 or compare(cost, price):
+    price = cost
+print "Result (part2):", price

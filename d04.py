@@ -10,7 +10,15 @@ md = hashlib.md5()
 while True:
   m = md.copy()
   m.update(string + str(count))
+  if m.hexdigest().startswith('00000'):
+    print "Answer (part1): " + str(count)
+    break
+  count += 1
+
+while True:
+  m = md.copy()
+  m.update(string + str(count))
   if m.hexdigest().startswith('000000'):
-    print "Answer: " + str(count)
+    print "Answer (part1): " + str(count)
     break
   count += 1

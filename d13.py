@@ -24,18 +24,22 @@ def calcHapiness(arrangement):
   ppl = len(arrangement)
   hap = 0
   # Remove the -1 for part 1
-  for i in range(ppl-1):
+  for i in range(ppl - me):
     hap += preferences[arrangement[i] + ' ' + arrangement[(i+1)%ppl]]
     hap += preferences[arrangement[(i+1)%ppl] + ' ' + arrangement[i]]
   return hap
 
-maximum = False
-for perm in itertools.permutations(people):
-  val = calcHapiness(perm)
-  if not maximum:
-    maximum = val
-  elif maximum < val:
-    maximum = val
+def getMax():
+  maximum = False
+  for perm in itertools.permutations(people):
+    val = calcHapiness(perm)
+    if not maximum:
+      maximum = val
+    elif maximum < val:
+      maximum = val
+  return maximum
 
-print "Answer: ", maximum
-print calcHapiness(('Bob', 'Alice', 'David', 'Carol'))
+me = 0
+print "Part 1: ", getMax()
+me = 1
+print "Part 2: ", getMax()

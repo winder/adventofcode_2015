@@ -1,7 +1,5 @@
+#!/usr/bin/python
 import sys
-
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
 
 invalidCharacters = ('i', 'o', 'l')
 
@@ -52,5 +50,5 @@ def getNextPassword(password):
   return password
 
 l = list(startingPassword)
-print "".join(getNextPassword(l))
-print "".join(getNextPassword(l))
+print "Part 1:", "".join(getNextPassword(l))
+print "Part 2:", "".join(getNextPassword(l))

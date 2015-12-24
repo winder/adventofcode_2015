@@ -2,9 +2,6 @@
 import sys
 import re
 
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-
 filename = sys.argv[1]
 scoops = int(sys.argv[2])
 maxCal = -1

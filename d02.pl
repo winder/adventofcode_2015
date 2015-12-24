@@ -12,7 +12,6 @@ sub getAreaForBox {
 
   my $sas = sum @side_area;
   my $min = min @side_area;
-  print "l: $l w: $w h: $h, area: $sas min: $min\n";
 
   return 2 * $sas + $min;
 }
@@ -20,9 +19,7 @@ sub getAreaForBox {
 sub getLengthForRibbon {
   my ($l, $w, $h) = @_;
 
-  print "not sort: $_[0], $_[1], $_[2]\n";
   my @sorted = sort { $a <=> $b } @_;
-  print "    sort: $sorted[0], $sorted[1], $sorted[2]\n";
   my $bow = product @sorted;
   my $perim = 2*$sorted[0] + 2*$sorted[1];
 
@@ -31,7 +28,6 @@ sub getLengthForRibbon {
 
 my $num_args = $#ARGV + 1;
 if ($num_args != 1) {
-  print "\nUsage: name.pl first_name last_name\n";
   exit;
 }
 
@@ -49,14 +45,13 @@ while( my $line = <$fh>)  {
 
   my @box = split /x/, $line;
 
+  # Part 1
   my $area += getAreaForBox @box;
   $area_sum += $area;
 
+  # Part 2
   my $len = getLengthForRibbon @box;
   $ribbon_len_sum += $len;
-  print "Ribbon length: $len\n";
-
-  #last if ++$count == 2;
 }
 
-print "Hello, $input_file, area_sum: $area_sum ribbon_len_sum: $ribbon_len_sum\n"
+print "Wrapping paper required (part1): $area_sum\nFeet of ribbon required (part2): $ribbon_len_sum\n"

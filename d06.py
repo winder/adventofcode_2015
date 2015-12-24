@@ -5,7 +5,7 @@ import re
 
 filename = sys.argv[1]
 
-''' initialize 2D array of booleans to false '''
+# initialize 2D array of booleans to false
 grid = [[False]*1000 for i in range(1000)]
 
 for line in open(filename):

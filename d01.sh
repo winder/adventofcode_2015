@@ -18,8 +18,10 @@ do
   ((count++))
 
   if [[ $floor == $TARGET ]]; then
-    echo "Entered $TARGET at position $count"
+    echo "(part2) Entered $TARGET at position $count"
   fi
   #echo  "$char $floor"
 done < "$INPUT"
+
+echo "Final floor (part1) $floor"
 

@@ -46,7 +46,9 @@ for i in range(duration):
 # By distance
 winner = getWinners(3)[0]
 print "Winner (dist):",winner,speeds[winner]
+print "\tPart 1:", speeds[winner][3]
 
 # By points
 winner = getWinners(4)[0]
 print "Winner (points):",winner,speeds[winner]
+print "\tPart 2:", speeds[winner][4]

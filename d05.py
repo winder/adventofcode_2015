@@ -17,7 +17,7 @@ for line in open(filename):
   double = False
   badstr = False
   lastch = ''
-  '''print "Line: ", line'''
+  # print "Line: ", line
 
   for c in line:
     if c in vowels:
@@ -27,7 +27,7 @@ for line in open(filename):
     lastch = c
 
   if vowel_count >= 3 and double:
-    ''' Only do this if I have to. '''
+    # Only do this if I have to.
     for bad in badstrings:
       if bad in line:
         badstr = True
@@ -37,14 +37,5 @@ for line in open(filename):
   else:
     naughty.append(line)
 
-  '''
-  print "Bad string: ", str(badstr)
-  print "Vowel count: ", str(vowel_count)
-  print "Double char: ", str(double)
-
-print "Naughty list: (", str(len(naughty)), "): ", str(naughty)
-print "Nice list: (", str(len(nice)), "): ", str(nice)
-  '''
-
-print "Naughty count: ", str(len(naughty))
-print "Nice count: ", str(len(nice))
+#print "Naughty count: ", str(len(naughty))
+print "Nice count (part1): ", str(len(nice))

@@ -1,9 +1,6 @@
 #!/usr/bin/python
 import sys
 
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-
 filename = sys.argv[1]
 
 with open(filename) as f:
@@ -23,12 +20,12 @@ with open(filename) as f:
       if curNum != 0:
         nums.append(curNum * negate)
         total += (curNum * negate)
-        print "Adding to total:", (curNum * negate)
+        #print "Adding to total:", (curNum * negate)
         curNum = 0
       negate = 1
 
     if not c:
-      print "End of file"
+      #print "End of file"
       break
 
 print "Sum:", total

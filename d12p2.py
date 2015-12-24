@@ -3,9 +3,6 @@ import sys
 import json
 import collections
 
-print 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv)
-
 filename = sys.argv[1]
 
 json_object = json.load(open(filename))
@@ -26,7 +23,7 @@ def is_digit(n):
 
 def thing(l):
   if is_digit(l):
-    print l
+    #print l
     global total
     total = total + int(l)
 
