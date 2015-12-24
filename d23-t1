@@ -1,0 +1,10 @@
+jmp +4
+jmp +100
+inc a
+inc a
+inc a
+inc a
+inc b
+jio b, -1
+jie a, -3
+jmp -8

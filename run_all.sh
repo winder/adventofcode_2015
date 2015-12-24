@@ -70,3 +70,6 @@ time ./d21.py d21-boss d21-items
 
 printf "\n=== Day 22 ===\n"
 time ./d22.py
+
+printf "\n=== Day 23 ===\n"
+time ./d23.py d23-input
