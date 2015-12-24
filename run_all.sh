@@ -73,3 +73,6 @@ time ./d22.py
 
 printf "\n=== Day 23 ===\n"
 time ./d23.py d23-input
+
+printf "\n=== Day 24 ===\n"
+time ./d24.py d24-input
